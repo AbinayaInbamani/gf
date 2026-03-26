@@ -1,5 +1,9 @@
 <div>Teachable Machine Image Model</div>
 <button type="button" onclick="init()">Start</button>
+<br><br>
+<input type="file" id="image-upload" accept="image/*" />
+<br>
+<img id="preview" width="200" style="display:none;" />
 <div id="webcam-container"></div>
 <div id="label-container"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -55,16 +59,8 @@
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
-    }
-    <br><br>
-<input type="file" id="image-upload" accept="image/*" />
-<br>
-<img id="preview" width="200" style="display:none;" />
-<br><br>
-<input type="file" id="image-upload" accept="image/*" />
-<br>
-<img id="preview" width="200" style="display:none;" />
-// Upload image support
+    }       
+    // Upload image support
 document.getElementById("image-upload").addEventListener("change", async function(event) {
     const file = event.target.files[0];
     if (!file) return;
@@ -83,9 +79,4 @@ document.getElementById("image-upload").addEventListener("change", async functio
         }
     };
 });
-
-
-
-
-        
 </script>
